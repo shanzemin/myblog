@@ -1,10 +1,10 @@
-'use strict';
+'use strict'
 
 /**
  * @param {Egg.Application} app - egg application
  */
 module.exports = app => {
-  const { router, controller } = app;
-  
+  const { router, controller } = app
+
   router.resources('/api/users', controller.users)
-};
+}

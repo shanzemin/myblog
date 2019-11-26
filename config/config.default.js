@@ -1,6 +1,6 @@
 /* eslint valid-jsdoc: "off" */
 
-'use strict';
+'use strict'
 
 /**
  * @param {Egg.EggAppInfo} appInfo app info
@@ -10,20 +10,20 @@ module.exports = appInfo => {
    * built-in config
    * @type {Egg.EggAppConfig}
    **/
-  const config = exports = {};
+  const config = exports = {}
 
   // use for cookie sign key, should change to your own and keep security
-  config.keys = appInfo.name + '_1574759850450_3527';
+  config.keys = appInfo.name + '_1574759850450_3527'
 
   // add your middleware config here
-  config.middleware = [];
+  config.middleware = []
 
   config.cluster = {
     listen: {
       port: 7001,
-      hostname: '0.0.0.0',
-    },
-  };
+      hostname: '0.0.0.0'
+    }
+  }
 
   config.sequelize = {
     dialect: 'mysql',
@@ -37,10 +37,10 @@ module.exports = appInfo => {
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
-  };
+  }
 
   return {
     ...config,
-    ...userConfig,
-  };
+    ...userConfig
+  }
 };

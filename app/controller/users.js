@@ -1,13 +1,13 @@
-'use strict';
+'use strict'
 
-const Controller = require('egg').Controller;
+const Controller = require('egg').Controller
 
 class UserController extends Controller {
-  async index() {
-    const { ctx } = this;
-    let users = await ctx.service.user.list({})
-    ctx.body = users;
+  async index () {
+    const { ctx } = this
+    const users = await ctx.service.user.list({})
+    ctx.body = users
   }
 }
 
-module.exports = UserController;
+module.exports = UserController
