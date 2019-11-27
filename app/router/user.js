@@ -5,6 +5,12 @@
  */
 module.exports = app => {
   const { router, controller } = app
+  const usersRouter = router.namespace('/api/users')
 
-  router.resources('/api/users', controller.users)
+  usersRouter.get('/', controller.users.index)
+  usersRouter.get('/:id', controller.users.show)
+  usersRouter.post('/login', controller.users.login)
+  usersRouter.post('/', controller.users.create)
+  usersRouter.put('/:id', controller.users.update)
+  usersRouter.delete('/:id', controller.users.destroy)
 }

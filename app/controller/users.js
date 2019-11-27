@@ -32,6 +32,11 @@ class UserController extends Controller {
     const users = await ctx.service.user.destory({ id: ctx.params.id })
     ctx.success(users)
   }
+
+  async login () {
+    const { ctx } = this
+    ctx.success('login')
+  }
 }
 
 module.exports = UserController
