@@ -123,6 +123,7 @@ class BaseService extends Service {
   async findAll (query = {}) {
     return this.model.findAll(query)
   }
+
   async findAllQ (query, options = {}) {
     query = Object.assign({ where: query }, options)
     return this.model.findAll(query)

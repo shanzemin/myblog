@@ -34,6 +34,15 @@ module.exports = appInfo => {
     database: 'myblog'
   }
 
+  config.security = {
+    csrf: false
+  }
+
+  config.console = {
+    debug: true,
+    error: true
+  }
+
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
@@ -43,4 +52,4 @@ module.exports = appInfo => {
     ...config,
     ...userConfig
   }
-};
+}

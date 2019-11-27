@@ -7,7 +7,9 @@
     "declarations": true
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "egg": "^2.15.1",
+    "egg-console": "^2.0.1",
     "egg-scripts": "^2.11.0",
     "egg-sequelize": "^5.2.0",
     "mysql2": "^2.0.1"
@@ -20,6 +22,7 @@
     "egg-mock": "^3.21.0",
     "eslint": "^5.13.0",
     "eslint-config-egg": "^7.1.0",
+    "sequelize-cli": "^5.5.1",
     "standard": "^14.3.1"
   },
   "engines": {

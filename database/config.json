@@ -1,0 +1,47 @@
+{
+  "development": {
+    "username": "root",
+    "password": "123456",
+    "database": "myblog",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "dialectOptions": {
+      "charset": "utf8mb4"
+    },
+    "define": {
+      "freezeTableName": false,
+      "underscored": true,
+      "version": true
+    }
+  },
+  "test": {
+    "username": "root",
+    "password": "123456",
+    "database": "myblog_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "dialectOptions": {
+      "charset": "utf8mb4"
+    },
+    "define": {
+      "freezeTableName": false,
+      "underscored": true,
+      "version": true
+    }
+  },
+  "production": {
+    "username": "root",
+    "password": "123456",
+    "database": "myblog",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "dialectOptions": {
+      "charset": "utf8mb4"
+    },
+    "define": {
+      "freezeTableName": false,
+      "underscored": true,
+      "version": true
+    }
+  }
+}
