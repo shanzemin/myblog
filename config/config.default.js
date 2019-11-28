@@ -16,7 +16,7 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1574759850450_3527'
 
   // add your middleware config here
-  config.middleware = []
+  config.middleware = ['auth']
 
   config.cluster = {
     listen: {
@@ -41,6 +41,19 @@ module.exports = appInfo => {
   config.console = {
     debug: true,
     error: true
+  }
+
+  config.passportLocal = {
+    usernameField: 'user',
+    passwordField: 'pass'
+  }
+
+  config.jwt = {
+    secret: 'shanzm-secret'
+  }
+
+  config.token = {
+    expiresIn: 60 * 60 * 24 * 30
   }
 
   // add your user config here

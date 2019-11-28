@@ -3,13 +3,14 @@
 module.exports = {
   success (data = null, code = 200) {
     this.body = {
-      message: 'success',
+      code,
       data
     }
     this.status = code
   },
   failure (msg = null, code = 500) {
     this.body = {
+      code,
       message: msg
     }
     this.status = code

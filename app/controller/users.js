@@ -35,7 +35,12 @@ class UserController extends Controller {
 
   async login () {
     const { ctx } = this
-    ctx.success('login')
+    try {
+      const token = await ctx.service.auth.auth()
+      ctx.success(token)
+    } catch (error) {
+      ctx.failure(error.message)
+    }
   }
 }
 
