@@ -2,6 +2,11 @@
 
 const Controller = require('egg').Controller
 
+const path = require('path')
+const pump = require('mz-modules/pump')
+const uuid = require('node-uuid')
+const fse = require('fs-extra')
+
 class UserController extends Controller {
   async index () {
     const { ctx } = this
@@ -41,6 +46,18 @@ class UserController extends Controller {
     } catch (error) {
       ctx.failure(error.message)
     }
+  }
+
+  async upload () {
+    const { ctx } = this
+    const stream = await ctx.getFileStream()
+    const filename = path.extname(stream.filename).toLowerCase()
+    const filePath = path.join(path.resolve(__dirname, '../../'), '/uploads/imgs')
+    fse.ensureDirSync(filePath)
+    const target = path.join(filePath, `${uuid.v1().replace(/-/g, '')}${filename}`)
+    const writeStream = fse.createWriteStream(target)
+    await pump(stream, writeStream)
+    ctx.success({ url: target })
   }
 }
 

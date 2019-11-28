@@ -17,7 +17,8 @@
     "egg-scripts": "^2.11.0",
     "egg-sequelize": "^5.2.0",
     "egg-userrole": "^2.1.0",
-    "mysql2": "^2.0.1"
+    "mysql2": "^2.0.1",
+    "node-uuid": "^1.4.8"
   },
   "devDependencies": {
     "autod": "^3.0.1",

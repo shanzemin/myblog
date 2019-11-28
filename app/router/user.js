@@ -9,6 +9,7 @@ module.exports = app => {
 
   usersRouter.get('/', app.role.can('auth'), controller.users.index)
   usersRouter.get('/:id', controller.users.show)
+  usersRouter.post('/upload', controller.users.upload)
   usersRouter.post('/login', controller.users.login)
   usersRouter.post('/', controller.users.create)
   usersRouter.put('/:id', controller.users.update)

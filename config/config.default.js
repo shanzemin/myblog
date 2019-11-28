@@ -56,6 +56,14 @@ module.exports = appInfo => {
     expiresIn: 60 * 60 * 24 * 30
   }
 
+  config.multipart = {
+    mode: 'stream',
+    fileExtensions: ['.txt', '.apk', '.epub', '.pdf', '.xlsx', '.xls', '.doc', '.docx', '.ppt', '.pptx'],
+    fileSize: '100mb'
+  }
+
+  config.baseDir = 'uploads/'
+
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
