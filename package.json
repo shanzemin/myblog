@@ -17,6 +17,7 @@
     "egg-scripts": "^2.11.0",
     "egg-sequelize": "^5.2.0",
     "egg-userrole": "^2.1.0",
+    "lodash": "^4.17.15",
     "mysql2": "^2.0.1",
     "node-uuid": "^1.4.8"
   },

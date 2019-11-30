@@ -10,7 +10,8 @@ module.exports = app => {
 
   const usersRouter = router.namespace('/api/users')
 
-  usersRouter.get('/', app.role.can('auth'), controller.users.index)
+  usersRouter.get('/me', app.role.can('auth'), controller.users.me)
+  usersRouter.get('/', controller.users.index)
   usersRouter.get('/:id', controller.users.show)
   usersRouter.post('/upload', file, controller.users.upload)
   usersRouter.post('/login', controller.users.login)
