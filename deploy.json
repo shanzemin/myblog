@@ -20,7 +20,7 @@
       "ref": "origin/dev",
       "repo": "git@github.com:shanzemin/myblog.git",
       "path": "/home/shanzm/workspaces/myblog",
-      "post-deploy": "cd myblog && cnpm install && npm stop && npm start"
+      "post-deploy": "cnpm install && npm stop && npm start"
     }
   }
 }
