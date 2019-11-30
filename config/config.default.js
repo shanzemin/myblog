@@ -57,7 +57,7 @@ module.exports = appInfo => {
   }
 
   config.multipart = {
-    mode: 'stream',
+    mode: 'file',
     fileExtensions: ['.txt', '.apk', '.epub', '.pdf', '.xlsx', '.xls', '.doc', '.docx', '.ppt', '.pptx'],
     fileSize: '100mb'
   }

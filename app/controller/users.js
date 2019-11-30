@@ -51,14 +51,7 @@ class UserController extends Controller {
 
   async upload () {
     const { ctx } = this
-    const stream = await ctx.getFileStream()
-    const filename = path.extname(stream.filename).toLowerCase()
-    const filePath = path.join(path.resolve(__dirname, '../../'), '/uploads/imgs')
-    fse.ensureDirSync(filePath)
-    const target = path.join(filePath, `${uuid.v1().replace(/-/g, '')}${filename}`)
-    const writeStream = fse.createWriteStream(target)
-    await pump(stream, writeStream)
-    ctx.success({ url: target })
+    ctx.success(ctx.request.files)
   }
 }
 
