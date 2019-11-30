@@ -17,7 +17,7 @@ module.exports = (options, app) => {
       await next()
     } catch (error) {
       console.log(error)
-      ctx.failure('无效token', 401)
+      ctx.failure(error.message, 500)
     }
   }
 }

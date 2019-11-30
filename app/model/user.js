@@ -9,7 +9,7 @@ module.exports = app => {
     name: { type: STRING(255), allowNull: false },
     password: { type: STRING(255), allowNull: false },
     age: { type: INTEGER },
-    photo: { type: STRING(255) },
+    avatar: { type: STRING(255) },
     mobile_phone: { type: INTEGER },
     province: { type: INTEGER },
     city: { type: INTEGER },
