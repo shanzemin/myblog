@@ -10,7 +10,8 @@ const fse = require('fs-extra')
 class UserController extends Controller {
   async index () {
     const { ctx } = this
-    const users = await ctx.service.user.list({})
+    const query = ctx.helper.toWhere(ctx.request.query)
+    const users = await ctx.service.user.list(query)
     ctx.success(users)
   }
 
