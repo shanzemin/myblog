@@ -34,20 +34,19 @@ class AuthService extends Service {
     const { ctx, app } = this
     const authToken = ctx.header.authorization
     if (!authToken) {
-      ctx.failure('无效token', 401)
-      return
+      return false
     }
     const token = ctx.header.authorization.replace('Bearer ', '')
     try {
       const data = app.jwt.verify(token)
       const user = await ctx.service.user.one({ id: data.id })
       if (!user) {
-        ctx.failure('无效token', 401)
-        return
+        return false
       }
       this.ctx.state.user = user
+      return true
     } catch (error) {
-      ctx.failure('无效token', 401)
+      return false
     }
   }
 }
