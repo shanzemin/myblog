@@ -2,10 +2,7 @@
 
 const Controller = require('egg').Controller
 
-const path = require('path')
-const pump = require('mz-modules/pump')
-const uuid = require('node-uuid')
-const fse = require('fs-extra')
+const _ = require('lodash')
 
 class UserController extends Controller {
   async index () {
@@ -17,8 +14,8 @@ class UserController extends Controller {
 
   async show () {
     const { ctx } = this
-    const users = await ctx.service.user.one({ id: ctx.params.id })
-    ctx.success(users)
+    const user = await ctx.service.user.one({ id: ctx.params.id })
+    ctx.success(user)
   }
 
   async create () {
@@ -51,14 +48,25 @@ class UserController extends Controller {
 
   async upload () {
     const { ctx } = this
-    const stream = await ctx.getFileStream()
-    const filename = path.extname(stream.filename).toLowerCase()
-    const filePath = path.join(path.resolve(__dirname, '../../'), '/uploads/imgs')
-    fse.ensureDirSync(filePath)
-    const target = path.join(filePath, `${uuid.v1().replace(/-/g, '')}${filename}`)
-    const writeStream = fse.createWriteStream(target)
-    await pump(stream, writeStream)
-    ctx.success({ url: target })
+    ctx.success(ctx.request.files)
+  }
+
+  async me () {
+    const { ctx } = this
+    let user = ctx.state.user
+    user = _.pick(user, ['id', 'name', 'age', 'avatar', 'mobile_phone', 'address'])
+    ctx.success(user)
+  }
+
+  async checkName () {
+    const { ctx } = this
+    let bool = false
+    const name = ctx.request.query.name
+    const users = await ctx.service.user.one({ name })
+    if (users) {
+      bool = true
+    }
+    ctx.success(bool)
   }
 }
 

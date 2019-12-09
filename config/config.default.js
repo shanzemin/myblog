@@ -16,7 +16,7 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1574759850450_3527'
 
   // add your middleware config here
-  config.middleware = ['auth']
+  config.middleware = []
 
   config.cluster = {
     listen: {
@@ -53,11 +53,11 @@ module.exports = appInfo => {
   }
 
   config.token = {
-    expiresIn: 60 * 60 * 24 * 30
+    expiresIn: 60 * 60 * 24
   }
 
   config.multipart = {
-    mode: 'stream',
+    mode: 'file',
     fileExtensions: ['.txt', '.apk', '.epub', '.pdf', '.xlsx', '.xls', '.doc', '.docx', '.ppt', '.pptx'],
     fileSize: '100mb'
   }

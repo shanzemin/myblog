@@ -6,7 +6,7 @@ module.exports = app => {
   }
 
   app.role.use('auth', async ctx => {
-    await ctx.service.auth.isAuthenticated()
-    return true
+    const bool = await ctx.service.auth.isAuthenticated()
+    return bool
   })
 }

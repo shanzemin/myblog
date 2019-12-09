@@ -1,0 +1,26 @@
+{
+  "apps" : [
+    {
+      "name"      : "myblog",
+      "script"    : "myblog/",
+      "env": {
+        "COMMON_VARIABLE": "true"
+      },
+      "env_production" : {
+        "NODE_ENV": "development",
+        "PORT": 7001
+      }
+    }
+  ],
+  "deploy" : {
+    "dev": {
+      "user": "shanzm",
+      "host": "120.76.131.91",
+      "port": "9399",
+      "ref": "origin/dev",
+      "repo": "git@github.com:shanzemin/myblog.git",
+      "path": "/home/shanzm/workspaces/myblog",
+      "post-deploy": "cnpm install && npm stop && npm start"
+    }
+  }
+}
