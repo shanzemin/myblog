@@ -10,6 +10,7 @@ module.exports = app => {
 
   const usersRouter = router.namespace('/api/users')
 
+  usersRouter.get('/checkName', controller.users.checkName)
   usersRouter.get('/me', app.role.can('auth'), controller.users.me)
   usersRouter.get('/', controller.users.index)
   usersRouter.get('/:id', controller.users.show)

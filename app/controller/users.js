@@ -57,6 +57,17 @@ class UserController extends Controller {
     user = _.pick(user, ['id', 'name', 'age', 'avatar', 'mobile_phone', 'address'])
     ctx.success(user)
   }
+
+  async checkName () {
+    const { ctx } = this
+    let bool = false
+    const name = ctx.request.query.name
+    const users = await ctx.service.user.one({ name })
+    if (users) {
+      bool = true
+    }
+    ctx.success(bool)
+  }
 }
 
 module.exports = UserController
