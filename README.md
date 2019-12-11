@@ -29,5 +29,7 @@ $ npm stop
 - Use `npm test` to run unit test.
 - Use `npm run autod` to auto detect dependencies upgrade, see [autod](https://www.npmjs.com/package/autod) for more detail.
 
+- 使用`npx sequelize-cli db:seed:all`初始化数据
+- 使用`npx sequelize-cli db:migrate`更新表字段
 
 [egg]: https://eggjs.org

@@ -27,5 +27,10 @@ module.exports = app => {
     }
   })
 
+  User.associate = function () {
+    this.belongsTo(app.model.Role)
+    this.hasMany(app.model.Blog)
+  }
+
   return User
 }
